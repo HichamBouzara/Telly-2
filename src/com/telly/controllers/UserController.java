@@ -11,7 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
+import com.telly.dao.User;
 
 @Controller
 public class UserController {
@@ -24,6 +24,15 @@ public class UserController {
 	public String showLogout() {
 		return "loggedout";
 	}
+
+	@RequestMapping("/createaccount")
+	public String createAccount(Model model, Principal principal) {
+		
+		model.addAttribute("user", new User());
+		
+		return "createaccount";
+	}
+
 
 }
 
